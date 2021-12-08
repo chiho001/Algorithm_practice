@@ -15,12 +15,16 @@ int main()
     const unsigned char isAsleep = 1 << 5;   // 0010 0000
     const unsigned char isDead = 1 << 6;     // 0100 0000
     const unsigned char isCrying = 1 << 7;   // 1000 0000
+    const unsigned char chiho = 1 << 0;
+    const unsigned char hahaha = chiho<<1;
     unsigned char me = 0;                    // all flags/options turned off to start
     me |= isHappy | isLaughing;              // I am happy and laughing
     me &= ~isLaughing;                       // I am no longer laughing
     // Query a few states (we'll use static_cast<bool> to interpret the results as a boolean value rather than an integer)
     std::cout << "I am happy? " << static_cast<bool>(me & isHappy) << '\n';
     std::cout << "I am laughing? " << static_cast<bool>(me & isLaughing) << '\n';
+    std::cout << "chiho " << chiho << '\n';
+    std::cout << "hahaha " << hahaha << hahaha << '\n';
     test1();
     return 0;
 }
