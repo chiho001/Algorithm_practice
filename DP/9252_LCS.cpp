@@ -12,17 +12,21 @@ using namespace std;
 
 int lcs_length;
 
-char ch_str_num1[1000];
-char ch_str_num2[1000];
+string str_num1;
+string str_num2;
 
-char dp[1001];
+string dp[1000];
 
 int main()
 {
-
+    ios_base::sync_with_stdio(NULL);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     cin >> ch_str_num1;
     cin >> ch_str_num2;
 
+    
     // cout << lcs_length;
     // if(lcs_length!=0)
     //     cout << lcs;
