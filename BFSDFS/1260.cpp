@@ -35,14 +35,52 @@ int node_index;
 void dfs(int start){
 
     visited[start] = true;
-    cout << start << " ";
+    printf("%d ", start);
     // 현재 노드와 연결된 다른 노드를 재귀적으로 방문
+    sort(vec_array[start].begin(), vec_array[start].end());
     for(int i = 0; i < vec_array[start].size();i++)
     {
         if(!visited[vec_array[start][i]])
             dfs(vec_array[start][i]);
     }
     return;
+}
+void init()
+{
+    for(int i = 0;i<1001; i++)
+    {
+        visited[i] = false;
+    }
+    return;
+}
+
+void bfs(int start)
+{
+    queue<int> q;
+    q.push(start);
+    while(!q.empty())
+    {
+        int x = q.front();
+        q.pop();
+        visited[x] = true;
+        printf("%d ", x);
+
+
+        sort(vec_array[x].begin(), vec_array[x].end());
+        for(int i =0 ;i<vec_array[x].size() ;i++)
+        {
+            int temp = vec_array[x][i];
+            if(!visited[temp])
+            {
+                q.push(temp);
+                visited[temp] = true;
+            }
+            
+        }
+
+    }
+    return;
+
 }
 int main()
 {
@@ -66,6 +104,9 @@ int main()
 
     }
     dfs(start);
+    init();
+    printf("\n");
+    bfs(start);
 
     return 0;
 }
